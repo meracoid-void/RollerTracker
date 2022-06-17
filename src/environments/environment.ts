@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  coasterApiKey: 'b8e6698e-a9d8-4b9b-9ae1-450f70b6e9f9',
+  captainCosterBaseURL: 'https://captaincoaster.com/'
 };
 
 /*
