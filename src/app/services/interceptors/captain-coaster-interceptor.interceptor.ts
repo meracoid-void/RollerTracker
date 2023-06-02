@@ -13,13 +13,12 @@ export class CaptainCoasterInterceptorInterceptor implements HttpInterceptor {
 
   constructor() {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const apiKey = environment.coasterApiKey;
-
-    const authRequest = request.clone({
-      headers: request.headers.set('X-AUTH-TOKEN', apiKey)
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('Inside interceptor');
+    const clonedRequest = req.clone({
+      headers: req.headers.set('Authorization', `${environment.coasterApiKey}`),
     });
 
-    return next.handle(authRequest);
+    return next.handle(clonedRequest);
   }
 }

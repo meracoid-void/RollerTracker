@@ -10,7 +10,7 @@ export class CaptainCoasterService {
   constructor(private http: HttpClient) { }
 
   getCoastersByPage(page: number){
-    return this.http.get(environment.captainCosterBaseURL + `api/coasters?page=${page}`);
+    return this.http.get(`api/coasters?page=${page}`);
   }
 
 }

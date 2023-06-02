@@ -74,6 +74,10 @@
               "browserTarget": "roller-tracker:build:development"
             }
           },
+          "options": {
+            "browserTarget": "roller-tracker:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

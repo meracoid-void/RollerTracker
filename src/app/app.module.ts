@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RollerListComponent } from './pages/roller-list/roller-list.component';
 import { CaptainCoasterInterceptorInterceptor } from './services/interceptors/captain-coaster-interceptor.interceptor';
+import { CaptainCoasterService } from './services/captain-coaster.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CaptainCoasterInterceptorInterceptor } from './services/interceptors/ca
     HttpClientModule
   ],
   providers:[
+    CaptainCoasterService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CaptainCoasterInterceptorInterceptor,
