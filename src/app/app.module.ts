@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RollerListComponent } from './pages/roller-list/roller-list.component';
 import { CaptainCoasterInterceptorInterceptor } from './services/interceptors/captain-coaster-interceptor.interceptor';
 import { CaptainCoasterService } from './services/captain-coaster.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CaptainCoasterService } from './services/captain-coaster.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers:[
     CaptainCoasterService,

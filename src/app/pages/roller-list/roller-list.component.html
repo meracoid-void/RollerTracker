@@ -1,11 +1,17 @@
-<div *ngIf="coasters && coasters.length > 0">
-    <div *ngFor="let coaster of coasters">
-        {{coaster.name}} - {{coaster.park.name}}
-    </div>
-    <div>
-        {{starting}} - {{ending}} of {{total}}
-    </div>
-    <div>
-        <button [disabled]="pageNumber == 1" (click)="pageBack()">Prev</button>Page Number: {{pageNumber}} <button [disabled]="ending >= total" (click)="pageForward()">Next</button>
-    </div>
+<div>
+    <form (ngSubmit)="onNameSubmit()">
+        <label for="coasterName">Coaster Name: </label>
+        <input type="text" id="coasterName" [(ngModel)]="coasterName" name="coasterName">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div *ngFor="let coaster of coasters">
+    {{coaster.id}} - {{coaster.name}} - {{coaster.park.name}}
+</div>
+<div>
+    {{starting}} - {{ending}} of {{total}}
+</div>
+<div>
+    <button [disabled]="pageNumber == 1" (click)="pageBack()">Prev</button>Page Number: {{pageNumber}} <button [disabled]="ending >= total" (click)="pageForward()">Next</button>
 </div>

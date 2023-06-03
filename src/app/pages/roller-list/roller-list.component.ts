@@ -13,32 +13,36 @@ export class RollerListComponent implements OnInit {
   total: number = 0;
   starting: number = 1;
   ending: number = 30;
+  coasterName!: string;
 
   constructor(private coasterService: CaptainCoasterService) { }
 
   ngOnInit(): void {
-    this.coasterService.getCoastersByPage(1).subscribe(x =>{
-      this.coasters = x['hydra:member'];
-      this.total = x['hydra:totalItems'];
-    });
+    this.search();
   }
 
   pageBack(){
     this.pageNumber -= 1;
-    this.coasterService.getCoastersByPage(this.pageNumber).subscribe(x =>{
+    this.search();
+  }
+
+  pageForward(){
+    this.pageNumber += 1;
+    this.search();
+  }
+
+  search(){
+    this.coasterService.getCoastersByPage(this.pageNumber, this.coasterName).subscribe(x =>{
       this.coasters = x['hydra:member'];
+      this.total = x['hydra:totalItems'];
       this.ending = 30 * this.pageNumber;
       this.starting = this.ending - 29;
     });
   }
 
-  pageForward(){
-    this.pageNumber += 1;
-    this.coasterService.getCoastersByPage(this.pageNumber).subscribe(x =>{
-      this.coasters = x['hydra:member'];
-      this.ending = 30 * this.pageNumber;
-      this.starting = this.ending - 29;
-    });
+  onNameSubmit(){
+    this.pageNumber = 1;
+    this.search();
   }
 
 }
