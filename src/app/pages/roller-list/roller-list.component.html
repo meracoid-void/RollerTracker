@@ -2,6 +2,10 @@
     <form (ngSubmit)="onNameSubmit()">
         <label for="coasterName">Coaster Name: </label>
         <input type="text" id="coasterName" [(ngModel)]="coasterName" name="coasterName">
+        <br>
+        <label for="maufacturerName">Manufacturer Name: </label>
+        <input type="text" id="manufacturerName" [(ngModel)]="manufacturerName" name="manufacturerName" >
+        <br>
         <button type="submit">Submit</button>
     </form>
 </div>
@@ -13,5 +17,5 @@
     {{starting}} - {{ending}} of {{total}}
 </div>
 <div>
-    <button [disabled]="pageNumber == 1" (click)="pageBack()">Prev</button>Page Number: {{pageNumber}} <button [disabled]="ending >= total" (click)="pageForward()">Next</button>
+    <button [disabled]="pageNumber == 1" (click)="pageBack()">Prev</button> Page Number: {{pageNumber}} <button [disabled]="ending >= total" (click)="pageForward()">Next</button>
 </div>

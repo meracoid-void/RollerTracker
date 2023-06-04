@@ -14,6 +14,7 @@ export class RollerListComponent implements OnInit {
   starting: number = 1;
   ending: number = 30;
   coasterName!: string;
+  manufacturerName!: string;
 
   constructor(private coasterService: CaptainCoasterService) { }
 
@@ -32,7 +33,7 @@ export class RollerListComponent implements OnInit {
   }
 
   search(){
-    this.coasterService.getCoastersByPage(this.pageNumber, this.coasterName).subscribe(x =>{
+    this.coasterService.getCoastersByPage(this.pageNumber, this.coasterName, this.manufacturerName).subscribe(x =>{
       this.coasters = x['hydra:member'];
       this.total = x['hydra:totalItems'];
       this.ending = 30 * this.pageNumber;

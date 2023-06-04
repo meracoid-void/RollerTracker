@@ -10,10 +10,13 @@ export class CaptainCoasterService {
 
   constructor(private http: HttpClient) { }
 
-  getCoastersByPage(page: number, name?: string | null) {
+  getCoastersByPage(page: number, name?: string | null, manufacturerName?: string | null) {
     let url = `api/coasters?page=${page}`;
     if(name){
       url += `&name=${name}`;
+    }
+    if(manufacturerName){
+      url += `&manufacturer=${manufacturerName}`;
     }
     return this.http.get<CoasterSearchModel>(url);
   }
